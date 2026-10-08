@@ -20,7 +20,13 @@ jobs:
           channel: stable
       - run: flutter create --project-name cookies_milk --org com.cookiesmilk --platforms=web .
       - run: flutter pub get
-      - run: dart run flutter_launcher_icons
+      - run: |
+          sudo apt-get install -y imagemagick
+          convert assets/icon/icon.png -resize 32x32 web/favicon.png
+          convert assets/icon/icon.png -resize 192x192 web/icons/Icon-192.png
+          convert assets/icon/icon.png -resize 512x512 web/icons/Icon-512.png
+          convert assets/icon/icon.png -resize 192x192 web/icons/Icon-maskable-192.png
+          convert assets/icon/icon.png -resize 512x512 web/icons/Icon-maskable-512.png
       - run: |
           sed -i 's#<title>.*</title>#<title>Cookies \& Milk</title>#; s#content="cookies_milk"#content="Cookies \& Milk"#' web/index.html
           sed -i 's#"name": "cookies_milk"#"name": "Cookies \& Milk"#; s#"short_name": "cookies_milk"#"short_name": "Cookies\&Milk"#' web/manifest.json
