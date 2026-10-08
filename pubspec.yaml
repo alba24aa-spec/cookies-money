@@ -1,0 +1,16 @@
+name: cookies_milk
+description: Cookies & Milk - gastos domésticos y viajes.
+publish_to: none
+version: 0.2.0+1
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: any
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/icon.png
